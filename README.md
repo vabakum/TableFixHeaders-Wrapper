@@ -16,6 +16,8 @@
 
 * Shadows when there is more info to scroll.
 
+* Click and LongClick listeners for each cell view of the table
+
 
 ##Setup
 
@@ -269,9 +271,14 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 ## Screenshots
-![Screenshot 1](https://raw.github.com/InQBarna/TableFixHeaders/master/web/original.png "Screenshot 1")
+![Screenshot 1](https://github.com/miguelbcr/TableFixHeaders-Wrapper/blob/master/web/original.png)
 
-![Screenshot 2](https://raw.github.com/InQBarna/TableFixHeaders/master/web/oiginal_sortable.png "Screenshot 2")
+![Screenshot 2](https://github.com/miguelbcr/TableFixHeaders-Wrapper/blob/master/web/original_sortable.png)
+
+
+## Examples
+
+You can find some examples under [samples-wrapper folder](https://github.com/miguelbcr/TableFixHeaders-Wrapper/tree/master/samples-wrapper)
 
 ## License
 
