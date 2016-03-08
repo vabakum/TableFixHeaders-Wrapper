@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TableFixHeaders Samples</string>
+    <string name="table_original">Table Original</string>
+    <string name="table_basic">Table Basic</string>
+    <string name="table_original_sortable">Table Original Sortable</string>
+    <string name="order_sections_asc">Order sections ASC</string>
+</resources>
