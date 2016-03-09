@@ -2,16 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.miguelbcr.tablefixheaderssamples.MainActivity">
-    <item
-        android:id="@+id/table_original"
-        android:orderInCategory="100"
-        android:title="@string/table_original"
-        app:showAsAction="never" />
 
     <item
         android:id="@+id/table_basic"
-        android:orderInCategory="101"
+        android:orderInCategory="100"
         android:title="@string/table_basic"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/table_original"
+        android:orderInCategory="101"
+        android:title="@string/table_original"
         app:showAsAction="never" />
 
     <item

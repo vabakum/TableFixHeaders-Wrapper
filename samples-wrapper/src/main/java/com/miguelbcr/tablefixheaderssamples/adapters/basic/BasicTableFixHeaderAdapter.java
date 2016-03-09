@@ -81,6 +81,6 @@ public class BasicTableFixHeaderAdapter extends TableFixHeaderAdapter<
 
     @Override
     protected boolean isSection(List<List<String>> items, int row) {
-        return false;
+        return row % 10 == 0;
     }
 }

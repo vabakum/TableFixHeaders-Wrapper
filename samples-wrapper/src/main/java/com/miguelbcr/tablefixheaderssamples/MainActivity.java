@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         tableFixHeaders = (TableFixHeaders) findViewById(R.id.tablefixheaders);
         tableFixHeadersAdapterFactory = new TableFixHeadersAdapterFactory(this);
-        createTable(TableFixHeadersAdapterFactory.ORIGINAL);
+        createTable(TableFixHeadersAdapterFactory.BASIC);
     }
 
     @Override

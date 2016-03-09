@@ -63,7 +63,7 @@ public class BasicCellViewGroup extends FrameLayout
 
     @Override
     public void bindFirstBody(List<String> items, int row) {
-        textView.setText("Row " + (row + 1));
+        textView.setText(items.get(0));
         textView.setTypeface(null, Typeface.NORMAL);
         vg_root.setBackgroundResource(R.drawable.cell_lightgray_border_bottom_right_gray);
     }
@@ -77,7 +77,7 @@ public class BasicCellViewGroup extends FrameLayout
 
     @Override
     public void bindSection(List<String> item, int row, int column) {
-        textView.setText(column == 0 ? "Section:" + (row + 1) : "");
+        textView.setText(column == 0 ? "Section" : "");
         vg_root.setBackgroundResource(R.drawable.cell_lightgray_border_bottom_right_gray);
     }
 }

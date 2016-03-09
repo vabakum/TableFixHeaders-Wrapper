@@ -26,7 +26,7 @@ public class BasicTableFixHeader {
         BasicTableFixHeaderAdapter adapter = new BasicTableFixHeaderAdapter(context);
         List<List<String>> body = getBody();
 
-        adapter.setFirstHeader("BASIC");
+        adapter.setFirstHeader("FH");
         adapter.setHeader(getHeader());
         adapter.setFirstBody(body);
         adapter.setBody(body);
@@ -95,11 +95,13 @@ public class BasicTableFixHeader {
     private List<List<String>> getBody() {
         List<List<String>> rows = new ArrayList<>();
 
-        for (int row = 0; row < 100; row++) {
+        for (int row = 1; row <= 100; row++) {
             List<String>  cols = new ArrayList<>();
 
-            for (int col = 0; col < 30; col++)
-                cols.add("Col " + col);
+            for (int col = 0; col < 30; col++) {
+                String type = col == 0 ? "FB" : "B";
+                cols.add(type + " (" + row + ", " + col + ")");
+            }
 
             rows.add(cols);
         }

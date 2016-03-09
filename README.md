@@ -53,7 +53,14 @@ As usual, by the [TableFixHeaders] (https://github.com/InQBarna/TableFixHeaders)
 
 ### **2. Creating the table views**
 
-There are at most 5 types of views, first header (cell 0,0), rest of headers (1..total columns - 1), first body (first column, cell ?,0), body section (row separator) and body. Each view determines its role by the interface/s defined.
+There are at most 5 types of views. Imagine a matrix of **R**ows x **C**olumns. See [screenshots section](#screenshotssection):
+* First header (FH): cell R=0 C=0
+* Rest of headers (H): cells R=0 C=[1..C-1]
+* First body (FB): cells C=0 R=[1..R-1] `&& !isSection()`
+* Body (B): cells R=[1..R-1] C=[1..C-1] `&& !isSection()`
+* Section: It is a row separator and could be any row in R=[1..R-1] where `isSection() == true` (See method in [TableFixHeaderAdapter](https://github.com/miguelbcr/TableFixHeaders-Wrapper/blob/master/library/src/main/java/miguelbcr/ui/tableFixHeadesWrapper/TableFixHeaderAdapter.java))
+ 
+Each view determines its role by the interface/s defined.
 
 For example, if you want to create a unique view for all the table you can do something like this:
 
@@ -270,10 +277,12 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-## Screenshots
-![Screenshot 1](https://github.com/miguelbcr/TableFixHeaders-Wrapper/blob/master/web/original.png)
+## <a name="screenshotssection"></a>Screenshots
+![Screenshot 1](https://github.com/miguelbcr/TableFixHeaders-Wrapper/blob/master/web/basic.png)
 
-![Screenshot 2](https://github.com/miguelbcr/TableFixHeaders-Wrapper/blob/master/web/original_sortable.png)
+![Screenshot 2](https://github.com/miguelbcr/TableFixHeaders-Wrapper/blob/master/web/original.png)
+
+![Screenshot 3](https://github.com/miguelbcr/TableFixHeaders-Wrapper/blob/master/web/original_sortable.png)
 
 
 ## Examples
