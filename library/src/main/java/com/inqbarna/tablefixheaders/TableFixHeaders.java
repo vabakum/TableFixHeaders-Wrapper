@@ -84,7 +84,7 @@ public class TableFixHeaders extends ViewGroup {
 	 * that were specified in the XML file. This version uses a default style of
 	 * 0, so the only attribute values applied are those in the Context's Theme
 	 * and the given AttributeSet.
-	 * 
+	 *
 	 * The method onFinishInflate() will be called after all children have been
 	 * added.
 	 * 
@@ -121,6 +121,8 @@ public class TableFixHeaders extends ViewGroup {
 		this.touchSlop = configuration.getScaledTouchSlop();
 		this.minimumVelocity = configuration.getScaledMinimumFlingVelocity();
 		this.maximumVelocity = configuration.getScaledMaximumFlingVelocity();
+
+		this.setWillNotDraw(false);
 	}
 
 	/**
@@ -329,6 +331,72 @@ public class TableFixHeaders extends ViewGroup {
 		repositionViews();
 
 		shadowsVisibility();
+
+		awakenScrollBars();
+	}
+
+	/*
+	 * The expected value is: percentageOfViewScrolled * computeHorizontalScrollRange()
+	 */
+	@Override
+	protected int computeHorizontalScrollExtent() {
+		final float tableSize = width - widths[0];
+		final float contentSize = sumArray(widths) - widths[0];
+		final float percentageOfVisibleView = tableSize / contentSize;
+
+	    return Math.round(percentageOfVisibleView * tableSize);
+	}
+
+	/*
+	 * The expected value is between 0 and computeHorizontalScrollRange() - computeHorizontalScrollExtent()
+	 */
+	@Override
+	protected int computeHorizontalScrollOffset() {
+		final float maxScrollX = sumArray(widths) - width;
+		final float percentageOfViewScrolled = getActualScrollX() / maxScrollX;
+		final int maxHorizontalScrollOffset = width - widths[0] - computeHorizontalScrollExtent();
+
+	    return widths[0] + Math.round(percentageOfViewScrolled * maxHorizontalScrollOffset);
+	}
+
+	/*
+	 * The base measure
+	 */
+	@Override
+	protected int computeHorizontalScrollRange() {
+	    return width;
+	}
+
+	/*
+	 * The expected value is: percentageOfViewScrolled * computeVerticalScrollRange()
+	 */
+	@Override
+	protected int computeVerticalScrollExtent() {
+		final float tableSize = height - heights[0];
+		final float contentSize = sumArray(heights) - heights[0];
+		final float percentageOfVisibleView = tableSize / contentSize;
+
+	    return Math.round(percentageOfVisibleView * tableSize);
+	}
+
+	/*
+	 * The expected value is between 0 and computeVerticalScrollRange() - computeVerticalScrollExtent()
+	 */
+	@Override
+	protected int computeVerticalScrollOffset() {
+		final float maxScrollY = sumArray(heights) - height;
+		final float percentageOfViewScrolled = getActualScrollY() / maxScrollY;
+		final int maxHorizontalScrollOffset = height - heights[0] - computeVerticalScrollExtent();
+
+	    return heights[0] + Math.round(percentageOfViewScrolled * maxHorizontalScrollOffset);
+	}
+
+	/*
+	 * The base measure
+	 */
+	@Override
+	protected int computeVerticalScrollRange() {
+	    return height;
 	}
 
 	public int getActualScrollX() {

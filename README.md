@@ -18,6 +18,7 @@
 
 * Click and LongClick listeners for each cell view of the table
 
+* Required minimum API level: 5
 
 ##Setup
 

@@ -4,10 +4,10 @@ group='com.github.miguelbcr'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
-        minSdkVersion 4
+        minSdkVersion 5
         targetSdkVersion 23
 
     }
@@ -15,6 +15,4 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
 }
-
