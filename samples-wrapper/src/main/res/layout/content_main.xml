@@ -11,5 +11,6 @@
     <com.inqbarna.tablefixheaders.TableFixHeaders
         android:id="@+id/tablefixheaders"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scrollbars="horizontal|vertical" />
 </RelativeLayout>
